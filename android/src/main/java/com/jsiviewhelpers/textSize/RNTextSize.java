@@ -167,6 +167,6 @@ public class RNTextSize {
    */
   @SuppressWarnings("deprecation")
   private static float getCurrentDensity() {
-    return DisplayMetricsHolder.getWindowDisplayMetrics().density;
+    return DisplayMetricsHolder.getScreenDisplayMetrics().density;
   }
 }

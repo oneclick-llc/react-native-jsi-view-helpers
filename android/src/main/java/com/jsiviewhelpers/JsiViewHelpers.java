@@ -275,7 +275,7 @@ public class JsiViewHelpers {
    */
   @SuppressWarnings("deprecation")
   private float getCurrentDensity() {
-    return DisplayMetricsHolder.getWindowDisplayMetrics().density;
+    return DisplayMetricsHolder.getScreenDisplayMetrics().density;
   }
 
   private static void computeBoundingBox(View view, int[] outputBuffer) {
