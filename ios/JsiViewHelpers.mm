@@ -1,6 +1,6 @@
 #import "JsiViewHelpers.h"
 #import <React/RCTBlobManager.h>
-#import <React/RCTScrollView.h>
+#import <React/RCTScrollViewComponentView.h>
 #import <React/RCTUIManager.h>
 #import <React/RCTBridge+Private.h>
 #import <jsi/jsi.h>
@@ -133,16 +133,16 @@ RCT_EXPORT_MODULE()
   }
 
   dispatch_async(dispatch_get_main_queue(), ^{
-    RCTScrollView *foundScrollView;
+    RCTScrollViewComponentView *foundScrollView;
     if (refScrollId != NULL) {
       UIView* view = [self viewForReactTag:refScrollId];
-      foundScrollView = (RCTScrollView*)view;
+      foundScrollView = (RCTScrollViewComponentView*)view;
     } else if (nativeScrollId != NULL) {
       UIView* view = [self viewForNativeId:nativeScrollId];
-      foundScrollView = (RCTScrollView*)view;
+      foundScrollView = (RCTScrollViewComponentView*)view;
     }
     
-    if (foundScrollView == NULL) return;
+    if (![foundScrollView isKindOfClass:RCTScrollViewComponentView.class]) return;
     UIView* childView = [Scroller findInParent:foundScrollView nativeID:nativeChildId];
     [Scroller scrollToView:foundScrollView.scrollView
                       view:childView

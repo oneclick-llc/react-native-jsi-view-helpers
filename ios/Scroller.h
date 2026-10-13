@@ -1,4 +1,4 @@
-#import <React/RCTScrollView.h>
+#import <UIKit/UIKit.h>
 #import <React/RCTUIManager.h>
 
 @interface Scroller : NSObject
